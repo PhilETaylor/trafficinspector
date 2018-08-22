@@ -25,39 +25,25 @@ class DefaultController
         // Create a PSR7 request based on the current browser request.
         $request = ServerRequestFactory::fromGlobals();
 
-// Create a PSR7 request based on the current browser request.
-//        $request = ServerRequestFactory::fromGlobals();
-//        dump((string)($request));
-//        die;
-
         $key = 'REQUEST_'.microtime();
 
         $redis->hset($key, 'request_headers', json_encode($request->getHeaders()));
         $redis->hset($key, 'request_body', json_encode($request->getBody()->getContents()));
 
-// Create a guzzle client
+        // Create a guzzle client
         $guzzle = new \GuzzleHttp\Client();
 
-// Create the proxy instance
+        // Create the proxy instance
         $proxy = new Proxy(new GuzzleAdapter($guzzle));
 
-// Add a response filter that removes the encoding headers.
+        // Add a response filter that removes the encoding headers.
         $proxy->filter(new RemoveEncodingFilter());
 
-
-
-
-
-// Forward the request and get the response.
+        // Forward the request and get the response.
         $response = $proxy->forward($request)->to('http://httpbin.org/');
 
         $redis->hset($key, 'response_headers', json_encode($request->getHeaders()));
         $redis->hset($key, 'response_body', json_encode($request->getBody()));
-
-
-
-
-
 
         return new Response($response->getBody()->getContents());
     }

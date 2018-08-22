@@ -1,5 +1,6 @@
 framework:
     secret: '%env(APP_SECRET)%'
+    ide: "phpstorm://open?file=%%f&line=%%l&/var/www/current/>/Users/phil/Sites/trafficinspector/"
     #default_locale: en
     #csrf_protection: true
     #http_method_override: true
