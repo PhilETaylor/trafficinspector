@@ -15,6 +15,9 @@
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 
+# Symfony 4
+/var/log/*
+
 # Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini
@@ -46,3 +49,5 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+/.env
+/.idea*
