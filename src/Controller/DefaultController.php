@@ -36,6 +36,8 @@ class DefaultController
         // Create the proxy instance
         $proxy = new Proxy(new GuzzleAdapter($guzzle));
 
+        // Set proxy like this ! https://stackoverflow.com/questions/32324893/set-proxy-in-guzzle
+
         // Add a response filter that removes the encoding headers.
         $proxy->filter(new RemoveEncodingFilter());
 
