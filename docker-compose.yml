@@ -1,0 +1,18 @@
+version: '3'
+services:
+  stack:
+    container_name: 'trafficinspector-stack'
+    build:
+      context: ./docker/dev/
+      dockerfile: Dockerfile
+    ports:
+      -  "80:80"
+      -  "443:443"
+      -  "3306:3306"
+      -  "6379:6379"
+    volumes:
+       - trafficinspector-sync:/var/www/current:nocopy # nocopy is important
+       - .env:/var/www/current/.env
+volumes:
+  trafficinspector-sync:
+    external: true

@@ -110,6 +110,9 @@
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
     },
+    "predis/predis": {
+        "version": "v1.1.1"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -128,6 +131,9 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
+    "relay/relay": {
+        "version": "1.1.0"
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -135,6 +141,15 @@
             "branch": "master",
             "version": "5.2",
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        }
+    },
+    "snc/redis-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "e9c58bfc414cfb7f06e8e5ae9f589868498f5d6a"
         }
     },
     "swiftmailer/swiftmailer": {
@@ -400,6 +415,9 @@
     },
     "zendframework/zend-code": {
         "version": "3.3.1"
+    },
+    "zendframework/zend-diactoros": {
+        "version": "1.8.5"
     },
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"

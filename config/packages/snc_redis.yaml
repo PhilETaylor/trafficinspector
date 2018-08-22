@@ -1,0 +1,30 @@
+snc_redis:
+    profiler_storage:
+        client: profiler
+        ttl: 3600
+    session:
+        client: session
+        prefix: "%env(SESSION_PREFIX)%"
+    clients:
+        session:
+            type: predis
+            alias: session
+            dsn: "%env(REDIS_URL)%"
+        profiler:
+            type: predis
+            alias: profiler
+            dsn: "%env(REDIS_URL)%"
+        default:
+            type: predis
+            alias: default
+            dsn: "%env(REDIS_URL)%"
+
+# Define your clients here. The example below connects to database 0 of the default Redis server.
+#
+# See https://github.com/snc/SncRedisBundle/blob/master/Resources/doc/index.md for instructions on
+# how to configure the bundle.
+#
+#        default:
+#            type: predis
+#            alias: default
+#            dsn: "%env(REDIS_URL)%"
